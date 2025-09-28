@@ -20,9 +20,9 @@ O objetivo é demonstrar práticas modernas de **QA Automation**, cobrindo teste
 cypress-rwa-tests/  
 cypress/  
 e2e/ → testes E2E (frontend)  
-login.cy.js  
-usuarios.cy.js  
-transacoes.cy.js  
+loginUser.cy.js  
+createNewUser.cy.js  
+transfer.cy.js  
 fixtures/ → dados mockados  
 support/ → comandos customizados  
 pages/ → Page Objects (a partir da semana 3)  
