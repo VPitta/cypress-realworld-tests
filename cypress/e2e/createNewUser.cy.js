@@ -1,0 +1,36 @@
+describe('template spec', () => {
+  it('Criação de um novo Usuario', () => {
+    cy.visit('/')
+    cy.get('[data-test="signup"]').click()
+    cy.get('[name="firstName"]').type('Vinicius') 
+    cy.get('[name="lastName"]').type('Pita')
+    cy.get('[name="username"]').type('VPitta')
+    cy.get('[name="password"]').type('123456')
+    cy.get('[name="confirmPassword"]').type('123456')
+    cy.get('[data-test="signup-submit"]').click()
+  })
+    it('Criação de um novo Usuario Invalido ( Senha Fraca )', () => {
+    cy.visit('/')
+    cy.get('[data-test="signup"]').click()
+    cy.get('[name="firstName"]').type('Vinicius') 
+    cy.get('[name="lastName"]').type('Pita')
+    cy.get('[name="username"]').type('VPitta')
+    cy.get('[name="password"]').type('1')
+    cy.get('[name="confirmPassword"]').type('1')
+    //cy.get('[data-test="signup-submit"]').click()
+    cy.get('#password-helper-text').contains('Password must contain at least 4 characters')
+  })
+
+    it('Criação de um novo Usuario Invalido ( Campos Obrigatorios )', () => {
+    cy.visit('/')
+    cy.get('[data-test="signup"]').click()
+    cy.get('[name="firstName"]')
+    cy.get('[name="lastName"]')
+    cy.get('[name="username"]').type('VPitta')
+    cy.get('[name="password"]').type('123456')
+    cy.get('[name="confirmPassword"]').type('123456')
+    //cy.get('[data-test="signup-submit"]').click()
+    cy.get('#firstName-helper-text').contains('First Name is required')
+  })
+})
+
