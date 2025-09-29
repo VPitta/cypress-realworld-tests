@@ -37,7 +37,7 @@ cypress-rwa-tests/
 │       └── TransactionPage.js
 │
 ├── cypress.config.js         # Configuração do Cypress
-└── package.json              # Dependências e scripts do projeto
+└── package.json              # Dependências e scripts do projeto 
 
 
 ---
