@@ -59,13 +59,13 @@ Teste de cadastro de usuário
 Criação de transação  
 Listagem de transações no feed  
 Adição de contato  
-Uso de beforeEach() (em andamento)  
-Uso de cy.intercept() (em andamento)  
+Uso de beforeEach()   
+Uso de cy.intercept() 
 
-🔄 Semana 3: Page Objects  
+✅ Semana 3: Page Objects  
 Criar classes para telas  
 Refatorar testes com POM  
-Criar comandos customizados (cy.login, cy.createTransaction)  
+Criar comandos customizados (cy.login, cy.createTransaction) (em andamento)
 
 🔄 Semana 4: Testes de API  
 Implementar testes com cy.request()  
