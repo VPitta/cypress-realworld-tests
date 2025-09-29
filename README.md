@@ -17,19 +17,26 @@ O objetivo é demonstrar práticas modernas de **QA Automation**, cobrindo teste
 ---
 
 ## 📂 Estrutura do Projeto
-cypress-rwa-tests/  
-cypress/  
-e2e/ → testes E2E (frontend)  
-loginUser.cy.js  
-createNewUser.cy.js  
-transaction.cy.js  
-fixtures/ → dados mockados  
-support/ → comandos customizados  
-pages/ → Page Objects  
-LoginPage.js  
-TransactionPage.js  
-cypress.config.js → configuração do Cypress  
-package.json  
+cypress-rwa-tests/
+├── cypress/
+│ ├── e2e/ # Testes E2E (frontend)
+│ │ ├── login.cy.js
+│ │ ├── usuarios.cy.js
+│ │ └── transacoes.cy.js
+│ │
+│ ├── fixtures/ # Dados mockados (JSON)
+│ │ └── users.json
+│ │
+│ ├── support/ # Comandos customizados e configs globais
+│ │ ├── commands.js
+│ │ └── e2e.js
+│ │
+│ └── pages/ # Page Objects (POM)
+│ ├── LoginPage.js
+│ └── TransactionPage.js
+│
+├── cypress.config.js # Configuração do Cypress
+└── package.json # Dependências e scripts do projeto 
 
 ---
 
