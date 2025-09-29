@@ -2,7 +2,7 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   e2e: {
-    baseUrl: "http://localhost:3000/signin", // onde o RWA roda
+    baseUrl: "http://localhost:3000/", // onde o RWA roda
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
