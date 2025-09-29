@@ -22,10 +22,12 @@ cypress/
 e2e/ → testes E2E (frontend)  
 loginUser.cy.js  
 createNewUser.cy.js  
-transfer.cy.js  
+transaction.cy.js  
 fixtures/ → dados mockados  
 support/ → comandos customizados  
-pages/ → Page Objects (a partir da semana 3)  
+pages/ → Page Objects
+LoginPage.js
+TransactionPage.js
 cypress.config.js → configuração do Cypress  
 package.json  
 
