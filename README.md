@@ -25,9 +25,9 @@ createNewUser.cy.js
 transaction.cy.js  
 fixtures/ → dados mockados  
 support/ → comandos customizados  
-pages/ → Page Objects
-LoginPage.js
-TransactionPage.js
+pages/ → Page Objects  
+LoginPage.js  
+TransactionPage.js  
 cypress.config.js → configuração do Cypress  
 package.json  
 
