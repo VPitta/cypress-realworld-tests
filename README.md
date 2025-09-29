@@ -22,7 +22,7 @@ cypress-rwa-tests/
 │ ├── e2e/ # Testes E2E (frontend)  
 │ │ ├── login.cy.js  
 │ │ ├── usuarios.cy.js  
-│ │ └── transacoes.cy.js
+│ │ └── transacoes.cy.js 
 │ │
 │ ├── fixtures/ # Dados mockados (JSON)  
 │ │ └── users.json  
