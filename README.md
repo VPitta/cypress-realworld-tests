@@ -18,7 +18,6 @@ O objetivo é demonstrar práticas modernas de **QA Automation**, cobrindo teste
 
 ## 📂 Estrutura do Projeto
 
-```text
 cypress-rwa-tests/
 ├── cypress/
 │   ├── e2e/                  # Testes E2E (frontend)
