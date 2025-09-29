@@ -24,7 +24,7 @@ cypress-rwa-tests/
 │ │ ├── usuarios.cy.js  
 │ │ └── transacoes.cy.js 
 │ │
-│ ├── fixtures/ # Dados mockados (JSON)  
+│ ├── fixtures/ # Dados mockados (JSON)
 │ │ └── users.json  
 │ │
 │ ├── support/ # Comandos customizados e configs globais  
