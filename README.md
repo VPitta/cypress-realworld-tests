@@ -6,7 +6,7 @@
 Este repositório contém uma suíte de testes automatizados desenvolvida em **Cypress** para a aplicação **Real World App (RWA)**.  
 O objetivo é demonstrar práticas modernas de **QA Automation**, cobrindo testes **E2E (frontend)** e **API (backend)**.  
 
-🔗 **Projeto original Real World App:** [https://github.com/gothinkster/realworld](https://github.com/gothinkster/realworld)
+🔗 **Projeto original [Real World App](https://github.com/gothinkster/realworld):**
 
 ---
 
