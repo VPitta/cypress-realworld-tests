@@ -6,8 +6,7 @@ jobs:
   cypress-run:
     runs-on: ubuntu-latest
     container:
-      # ✅ usa imagem real que existe no Docker Hub
-      image: cypress/browsers:node20.9.0-chrome118-ff118
+      image: cypress/browsers:node-20.10.0-chrome-118.0.5993.88-1-ff-118.0.2-edge-118.0.2088.46-1
       options: --user 1001
     steps:
       - uses: actions/checkout@v4
@@ -20,7 +19,6 @@ jobs:
 
       - uses: cypress-io/github-action@v6
         with:
-          # você pode usar seu script "test" ou rodar direto
           command: npx cypress run --browser chrome --record
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
