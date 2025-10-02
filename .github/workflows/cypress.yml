@@ -6,42 +6,14 @@ jobs:
   cypress-run:
     runs-on: ubuntu-latest
     container:
-      image: cypress/browsers:node-20.18.0-chrome-130.0.6723.69-1-ff-131.0.3
+      image: ${{ github.repository }}:custom-cypress-image
       options: --user 1001
     steps:
-      # Faz checkout do repo de testes (workflow atual)
-      - uses: actions/checkout@v4
-
-      # Configura Node.js
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      # Instala dependências do repo de testes
-      - run: yarn install
-
-      # Clona o repositório da aplicação
-      - name: Checkout app repo
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          repository: gothinkster/realworld
-          path: app
-
-      # Instala dependências da aplicação
-      - name: Install app dependencies
-        run: yarn install
-        working-directory: ./app
-
-      # Inicia o servidor da aplicação em background
-      - name: Start app
-        run: yarn dev &
-        working-directory: ./app
-
-      # Espera o servidor ficar pronto
-      - name: Wait for app
-        run: npx wait-on http://localhost:3000
-
-      # Roda os testes Cypress
+      - name: Build Docker image
+        run: |
+          docker build -t ${{ github.repository }}:custom-cypress-image .
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
