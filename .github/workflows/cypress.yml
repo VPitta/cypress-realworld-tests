@@ -5,15 +5,51 @@ on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    container:
-      image: ${{ github.repository }}:custom-cypress-image
-      options: --user 1001
     steps:
-      - name: Checkout
+      # 1️⃣ Checkout do repositório de testes
+      - name: Checkout test repo
         uses: actions/checkout@v4
-      - name: Build Docker image
+
+      # 2️⃣ Configurar Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 3️⃣ Instalar dependências do repositório de testes
+      - name: Install test dependencies
+        run: yarn install
+
+      # 4️⃣ Clonar o repositório da aplicação
+      - name: Checkout app repo
+        uses: actions/checkout@v4
+        with:
+          repository: gothinkster/realworld
+          path: app
+
+      # 5️⃣ Criar Dockerfile dinamicamente (para evitar puxar imagem inexistente)
+      - name: Create Dockerfile
         run: |
-          docker build -t ${{ github.repository }}:custom-cypress-image .
+          echo "FROM node:20-bullseye" > Dockerfile
+          echo "WORKDIR /app" >> Dockerfile
+          echo "COPY ./app ./app" >> Dockerfile
+          echo "WORKDIR /app" >> Dockerfile
+          echo "RUN yarn install" >> Dockerfile
+          echo "CMD [\"yarn\", \"dev\"]" >> Dockerfile
+
+      # 6️⃣ Build da imagem Docker
+      - name: Build custom Cypress image
+        run: docker build -t custom-cypress-image .
+
+      # 7️⃣ Inicia a aplicação em background
+      - name: Start app in background
+        run: docker run -d -p 3000:3000 custom-cypress-image
+
+      # 8️⃣ Espera servidor ficar pronto
+      - name: Wait for app
+        run: npx wait-on http://localhost:3000
+
+      # 9️⃣ Roda os testes Cypress no Cypress Cloud
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
